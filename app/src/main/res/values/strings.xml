@@ -4,4 +4,6 @@
     <string name="stop">stop</string>
     <string name="read_contacts">Read contacts</string>
     <string name="Internet_is_conected">Internet is conected</string>
+    <string name="Internet_is_connected">Internet is connected</string>
+    <string name="Internet_is_not_connected">Internet is not connected</string>
 </resources>
