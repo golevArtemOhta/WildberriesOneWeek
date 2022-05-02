@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WildberriesWeekOne</string>
+    <string name="start">Start</string>
+    <string name="stop">stop</string>
+    <string name="read_contacts">Read contacts</string>
+    <string name="Internet_is_conected">Internet is conected</string>
+</resources>
