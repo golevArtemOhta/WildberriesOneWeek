@@ -10,17 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WildberriesWeekOne">
         <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".contentprovider.ContentProviderActivity"
             android:exported="false" />
 
         <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".broadcastreceiver.BroadcastReceiverActivity"
             android:exported="false" />
 
         <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".service.ServiceActivity"
             android:exported="false" />
         <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -29,14 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver
-            android:name=".broadcastreceiver.NetworkReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
+
         <service
             android:name=".service.MusicPlayerService"
             android:enabled="true"
