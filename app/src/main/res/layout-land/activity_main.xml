@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/serviceBtn"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Service"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/broadcastReciverBtn"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Broadcast reciver"
+        app:layout_constraintEnd_toEndOf="@+id/serviceBtn"
+        app:layout_constraintStart_toStartOf="@+id/serviceBtn"
+        app:layout_constraintTop_toBottomOf="@+id/serviceBtn" />
+
+    <Button
+        android:id="@+id/contentProviderBtn"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Content Provider"
+        app:layout_constraintEnd_toEndOf="@+id/broadcastReciverBtn"
+        app:layout_constraintStart_toStartOf="@+id/broadcastReciverBtn"
+        app:layout_constraintTop_toBottomOf="@+id/broadcastReciverBtn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
