@@ -8,7 +8,7 @@ import android.media.MediaPlayer
 import com.example.wildberriesweekone.R
 
 
-class MusicPlayerService: Service() {
+class MusicPlayerService : Service() {
     var ambientMediaPlayer: MediaPlayer? = null
     override fun onBind(p0: Intent?): IBinder? {
         throw UnsupportedOperationException("Not yet implemented")

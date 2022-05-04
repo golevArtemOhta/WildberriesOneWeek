@@ -14,6 +14,21 @@ import com.example.wildberriesweekone.databinding.ActivityBroadcastReceiverBindi
 
 class BroadcastReceiverActivity : AppCompatActivity() {
 
+    /*Комментарии к экрану:
+    1.3. На данном экране показывается подключение интернета. При отключенном интернете экран
+    окрашивается в красный цвет. В центре экрана появляется надпись "Internet is not connected".
+    Также появляется надпись Toast с надписью "Internet is not connected"
+    При подключенном интернете экран окрашивается в зеленый цвет.
+    В центре экрана появляется надпись "Internet is connected".
+    Также появляется надпись Toast с надписью "Internet is connected"
+
+    1.4. Broadcast Receiver используется в приложениях, где нужно получать какие-то уведомления от
+    системы.
+    Популярные приложения использующие Broadcast Receiver:
+    - календари;
+    - будильники
+     */
+
     var br: BroadcastReceiver? = null
     lateinit var binding: ActivityBroadcastReceiverBinding
 
@@ -23,8 +38,6 @@ class BroadcastReceiverActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         title = "BroadcastReceiver"
-
-
 
         br = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {

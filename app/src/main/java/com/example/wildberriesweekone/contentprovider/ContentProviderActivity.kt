@@ -16,6 +16,18 @@ import android.widget.Toast
 
 
 class ContentProviderActivity : AppCompatActivity() {
+
+    /*Комментарии к экрану:
+    1.3. На данном экране происходит показ контактов. После нажатия кнопки "READ CONTACTS"
+    на экране появляются все контакты, забитые в смартфон.
+
+    1.4. Content provider используется в приложениях, где необходим обмен информацией.
+    Популярные приложения использующие Content provider:
+    - Мессенджеры (Whats'up, telegram)
+    - Банковские приложения (Сбербанк, Тинькофф, Альфа-банк, Тинькофф инвестиции)
+    [доступ к контактам необходим например для совершения перевода]
+     */
+
     lateinit var binding: ActivityContentProviderBinding
 
     private val REQUEST_CODE_READ_CONTACTS = 1
@@ -30,10 +42,13 @@ class ContentProviderActivity : AppCompatActivity() {
 
         binding.rcViewContacts.layoutManager = LinearLayoutManager(this)
 
-        with(binding){
+        with(binding) {
             buttonRead.setOnClickListener {
                 val hasReadContactPermission =
-                    ContextCompat.checkSelfPermission(this@ContentProviderActivity, Manifest.permission.READ_CONTACTS)
+                    ContextCompat.checkSelfPermission(
+                        this@ContentProviderActivity,
+                        Manifest.permission.READ_CONTACTS
+                    )
                 if (hasReadContactPermission == PackageManager.PERMISSION_GRANTED) {
                     READ_CONTACTS_GRANTED = true
                 } else {
@@ -54,17 +69,25 @@ class ContentProviderActivity : AppCompatActivity() {
     @SuppressLint("Range")
     private fun loadContacts() {
         val contactList: MutableList<Contact> = ArrayList()
-        val contacts = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null, null, null, null)
-        while (contacts!!.moveToNext()){
-            val name = contacts.getString(contacts.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
-            val number = contacts.getString(contacts.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+        val contacts = contentResolver.query(
+            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+            null,
+            null,
+            null,
+            null
+        )
+        while (contacts!!.moveToNext()) {
+            val name =
+                contacts.getString(contacts.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
+            val number =
+                contacts.getString(contacts.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
             val obj = Contact()
             obj.name = name
             obj.number = number
 
             contactList.add(obj)
         }
-        binding.rcViewContacts.adapter = ContactAdapter(contactList, this@ContentProviderActivity)
+        binding.rcViewContacts.adapter = ContactAdapter(contactList, this)
         contacts.close()
     }
 
